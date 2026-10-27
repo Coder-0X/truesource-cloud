@@ -5,7 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "node test/api.test.js"
+    "test": "node test/api.test.js",
+    "test:stress": "node test/stress-and-edge-cases.test.js",
+    "test:all": "node test/api.test.js && node test/stress-and-edge-cases.test.js"
   },
   "keywords": [
     "visual-search",
