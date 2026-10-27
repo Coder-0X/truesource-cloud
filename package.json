@@ -1,0 +1,23 @@
+{
+  "name": "truesource-cloud",
+  "version": "1.0.0",
+  "description": "Visual Vector Reverse Search Engine & Dropshipping Arbitrage SaaS API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node test/api.test.js"
+  },
+  "keywords": [
+    "visual-search",
+    "reverse-image-search",
+    "vector-search",
+    "1688",
+    "aliexpress",
+    "arbitrage",
+    "dropshipping",
+    "landed-cost",
+    "saas"
+  ],
+  "author": "Coder-0X",
+  "license": "MIT"
+}

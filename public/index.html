@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrueSource Cloud - Visual Vector Sourcing & Arbitrage SaaS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="nav-brand">
+        <span class="logo-icon">☁️</span>
+        <div>
+          <span class="brand-title">TrueSource Cloud</span>
+          <span class="brand-sub">Visual Vector Sourcing & Arbitrage Engine</span>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <span class="status-pill"><span class="dot"></span> API Active (v1.0.0)</span>
+        <a href="#api-docs" class="btn-secondary">API Docs</a>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="main-container">
+      <!-- Hero Intro -->
+      <section class="hero-banner">
+        <h1 class="hero-title">Reverse-Image Sourcing & Landed-Cost Intelligence</h1>
+        <p class="hero-desc">
+          Drop any Amazon, Shopify, or retail product photo to extract visual vector embeddings and find verified 1688 wholesale factories with real landed-cost profit calculations.
+        </p>
+      </section>
+
+      <!-- Interactive 2-Column Workspace -->
+      <div class="workspace-grid">
+        <!-- Left: Visual Search Panel -->
+        <section class="panel visual-panel">
+          <div class="panel-header">
+            <h2>📷 1. Visual Factory Matcher</h2>
+            <span class="panel-tag">Vector Cosine Engine</span>
+          </div>
+
+          <!-- Dropzone -->
+          <div class="dropzone" id="dropzone">
+            <span class="drop-icon">🖼️</span>
+            <span class="drop-text">Drag & drop product image or paste image URL</span>
+            <input type="text" id="image-url-input" class="input-field" placeholder="https://example.com/product-image.jpg">
+            <div class="sample-pills">
+              <span>Try Samples:</span>
+              <button class="pill-btn" data-sample="candle">Candle Warmer</button>
+              <button class="pill-btn" data-sample="sunset">Sunset Lamp</button>
+              <button class="pill-btn" data-sample="cleaner">Ultrasonic Cleaner</button>
+            </div>
+            <button id="search-btn" class="btn-primary">Search Factory Database</button>
+          </div>
+
+          <!-- Results Container -->
+          <div class="results-container">
+            <div class="results-header">
+              <span id="results-count">Matches (0)</span>
+              <span class="meta-tag">1688 & AliExpress Indexed</span>
+            </div>
+            <div id="matches-list" class="matches-list">
+              <div class="empty-matches">Search an image or select a sample above to view direct factory suppliers.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right: Arbitrage Calculator Panel -->
+        <section class="panel arbitrage-panel">
+          <div class="panel-header">
+            <h2>💰 2. Landed-Cost & Profit Margin Engine</h2>
+            <span class="panel-tag">Commercial Math</span>
+          </div>
+
+          <form id="arbitrage-form" class="calc-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="retail-price">Retail Price on Amazon/Shopify ($)</label>
+                <input type="number" id="retail-price" class="input-field" step="0.01" value="29.99" required>
+              </div>
+              <div class="form-group">
+                <label for="factory-price-cny">Factory Price on 1688 (¥ CNY)</label>
+                <input type="number" id="factory-price-cny" class="input-field" step="0.01" value="28.50" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="weight-grams">Packaged Weight (Grams)</label>
+                <input type="number" id="weight-grams" class="input-field" value="750">
+              </div>
+              <div class="form-group">
+                <label for="shipping-method">International Freight Method</label>
+                <select id="shipping-method" class="input-field select-field">
+                  <option value="air_standard">Air Standard / ePacket (10-15d)</option>
+                  <option value="air_express">Air Express DHL/FedEx (3-5d)</option>
+                  <option value="sea_economy">Ocean Consolidated (25-35d)</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary">Calculate Real Landed Profit</button>
+          </form>
+
+          <!-- Metrics Output Display -->
+          <div id="metrics-card" class="metrics-card">
+            <div class="metric-main">
+              <div>
+                <span class="metric-label">Estimated Net Profit</span>
+                <span class="metric-val" id="metric-profit">$16.71</span>
+              </div>
+              <div class="margin-badge" id="metric-margin">65.2% Margin</div>
+            </div>
+
+            <div class="metrics-summary-grid">
+              <div class="summary-item">
+                <span class="sub-label">True Landed Cost</span>
+                <span class="sub-val" id="metric-landed">$13.28</span>
+              </div>
+              <div class="summary-item">
+                <span class="sub-label">Markup Multiplier</span>
+                <span class="sub-val" id="metric-markup">7.6x</span>
+              </div>
+              <div class="summary-item">
+                <span class="sub-label">Viability Verdict</span>
+                <span class="sub-val verdict" id="metric-verdict">High Potential</span>
+              </div>
+            </div>
+
+            <!-- Breakdown Table -->
+            <div class="breakdown-wrap">
+              <span class="breakdown-title">Itemized Landed Cost Breakdown</span>
+              <table class="breakdown-table">
+                <tbody>
+                  <tr>
+                    <td>Factory Unit Cost (Converted)</td>
+                    <td id="breakdown-factory">$3.94</td>
+                  </tr>
+                  <tr>
+                    <td>Domestic China Freight (Factory to Port)</td>
+                    <td id="breakdown-domestic">$0.85</td>
+                  </tr>
+                  <tr>
+                    <td>International Air Express / Cargo</td>
+                    <td id="breakdown-intl">$4.88</td>
+                  </tr>
+                  <tr>
+                    <td>Estimated Customs Tariff (5%)</td>
+                    <td id="breakdown-tariff">$0.20</td>
+                  </tr>
+                  <tr>
+                    <td>Payment Processing & FX (2.9% + $0.30)</td>
+                    <td id="breakdown-processing">$1.17</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Developer API Section -->
+      <section id="api-docs" class="api-docs-section">
+        <h2 class="section-title">⚡ Developer REST API Endpoints</h2>
+        <div class="code-blocks-grid">
+          <div class="code-card">
+            <span class="endpoint-badge post">POST /api/v1/search/visual</span>
+            <pre><code>curl -X POST http://localhost:3000/api/v1/search/visual \
+  -H "Content-Type: application/json" \
+  -d '{ "queryText": "Nordic Candle Warmer Lamp", "limit": 5 }'</code></pre>
+          </div>
+          <div class="code-card">
+            <span class="endpoint-badge post">POST /api/v1/arbitrage/calculate</span>
+            <pre><code>curl -X POST http://localhost:3000/api/v1/arbitrage/calculate \
+  -H "Content-Type: application/json" \
+  -d '{ "retailPriceUsd": 29.99, "factoryPriceCny": 28.50, "weightGrams": 650 }'</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>TrueSource Cloud • Open Source Visual Vector Sourcing Engine by Coder-0X</span>
+      <span class="footer-links">
+        <a href="https://github.com/Coder-0X/truesource-cloud" target="_blank">GitHub Repository</a>
+        • <a href="/api/v1/health" target="_blank">Health Check</a>
+      </span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
